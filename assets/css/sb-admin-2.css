@@ -10828,6 +10828,12 @@ a:focus {
   background-size: cover;
 }
 
+.bg-gradient-purple {
+  background-color: #641646;
+  background-image: linear-gradient(180deg, #641646 10%, #4e3149 100%);
+  background-size: cover;
+}
+
 .bg-gray-100 {
   background-color: #f8f9fc !important;
 }

@@ -22,7 +22,7 @@
 
 </head>
 
-<body class="bg-gradient-primary">
+<body style="background-color:#9f0fff;">
 
     <div class="container">
         <!-- Outer Row -->
@@ -35,8 +35,8 @@
                         <h2 class="p-4 text-gray-900 border-bottom-primary">Aplikasi Evoting BEM</h2>
                         <!-- Nested Row within Card Body -->
                         <div class="row">
-                            <div class="col-lg-5 d-none d-lg-block text-center mt-1">
-                                <img src="<?=base_url('assets/img/');?>mhs.png" alt="Login Image" height="350">
+                            <div class="col-lg-5 d-none d-lg-block text-center mt-1 pl-5">
+                                <img src="<?=base_url('assets/img/');?>unipa.png" alt="Login Image" height="350">
                             </div>
                             <div class="col-lg-7">
                                 <div class="p-5">

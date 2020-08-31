@@ -20,6 +20,10 @@ class User_m extends CI_Model {
     public function getCount($table){
         return $this->db->count_all($table);
     }
+
+    public function getConfig(){
+        return $this->db->get('tb_pemilihan')->row_array();
+    }
 }
 
 /* End of file User_m.php */

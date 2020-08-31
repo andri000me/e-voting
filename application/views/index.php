@@ -43,12 +43,12 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar" style="background-color:#7109e0;">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                    <img src="<?=base_url('assets/img/');?>unipa.png" alt="Logo" height="50" width="50">
                 </div>
                 <div class="sidebar-brand-text mx-3">E-Voting <sup>2</sup></div>
             </a>
@@ -143,7 +143,8 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                <nav class="navbar navbar-expand navbar-light topbar mb-4 static-top shadow"
+                    style="background-color:#840ced;">
 
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -160,7 +161,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span
-                                    class="mr-4 d-none d-lg-inline text-gray-600 text-uppercase"><?= $this->session->username; ?></span>
+                                    class="mr-4 d-none d-lg-inline text-white text-uppercase"><?= $this->session->username; ?></span>
                                 <!-- <img class="img-profile rounded-circle" src="<?=base_url('assets/img/');?>mhs.png"> -->
                             </a>
                             <!-- Dropdown - User Information -->

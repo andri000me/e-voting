@@ -20,9 +20,9 @@ class Welcome extends CI_Controller {
 			'total_calon'=>$this->user_m->getCount('tb_calon'),
 			'total_pemilih'=>$this->user_m->getCount('tb_pemilih'),
 			'sudah_pilih'=>$this->user_m->getCount('tb_hasil_suara'),
-			'belum_pilih'=>$this->user_m->getCount('tb_pemilih') - $this->user_m->getCount('tb_hasil_suara'),
+			'belum_pilih'=>$this->user_m->getCount('tb_pemilih') - $this->user_m->getCount('tb_hasil_suara')
 		];
-		// var_dump($data['dashboard']);die;
+		$data['config'] = $this->user_m->getConfig();
 		$data['content'] = 'dashboard';
 		$this->load->view('index',$data);
 	}

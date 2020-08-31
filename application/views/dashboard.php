@@ -1,7 +1,19 @@
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+    <?php if($config['status']=='nonaktif'): ?>
+    <a href="<?=base_url('pemilihan/aktifkan');?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+            class="fas fa-stopwatch fa-sm text-white-50"></i> Aktifkan Pemilihan</a>
+    <?php endif; ?>
 </div>
+<?php if($this->session->flashdata('berhasil')): ?>
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Berhasil</strong> <?= $this->session->flashdata('berhasil'); ?>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<?php endif; ?>
 <?php if($this->session->userdata('level')=='administrator' || $this->session->userdata('level')=='operator'): ?>
 <!-- Content Row -->
 <div class="row">

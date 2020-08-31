@@ -40,6 +40,7 @@ class Login extends CI_Controller {
             }
         }else{
             $cek_user = $this->user_m->cekUser($username);
+            $config = $this->user_m->getConfig();
             if(password_verify($password,$cek_user['password'])){
                 $sessionData = [
                     'id'=>$cek_user['id_pemilih'],
@@ -47,7 +48,8 @@ class Login extends CI_Controller {
                     'username'=>$cek_user['nim'],
                     'nama'=>$cek_user['nama'],
                     'email'=>$cek_user['email'],
-                    'level'=>'user'
+                    'level'=>'user',
+                    'batas_pemilihan'=>$config['akhir_pemilihan']
                 ];
                 $this->session->set_userdata($sessionData);
                 redirect('welcome');

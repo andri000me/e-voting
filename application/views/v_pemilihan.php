@@ -1,5 +1,5 @@
 <!-- Page Heading -->
-<h1 class="h3 mb-2 text-gray-800">Pemungutan Suara</h1>
+<h1 class="h3 mb-2 text-gray-800">Pemungutan Suara <?= time(); ?></h1>
 <?php if($this->session->flashdata('berhasil')): ?>
 <div class="alert alert-success alert-dismissible fade show" role="alert">
     <strong>Berhasil</strong> <?= $this->session->flashdata('berhasil'); ?>
@@ -19,6 +19,11 @@
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-body">
+        <?php if($config['status']=='nonaktif'): ?>
+        <h2 class="card-title text-center border-left-danger text-danger">
+            Mohon Maaf, Waktu pemilihan pasangan calon telah anda lewati.
+        </h2>
+        <?php else: ?>
         <div class="row">
             <?php foreach($daftar_calon as $key => $dc): ?>
             <div class="col-md-4 mb-4">
@@ -45,5 +50,6 @@
             </div>
             <?php endforeach; ?>
         </div>
+        <?php endif; ?>
     </div>
 </div>
