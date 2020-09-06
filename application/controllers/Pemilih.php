@@ -60,7 +60,7 @@ class Pemilih extends CI_Controller {
             $password = $this->input->post('password',true);
         }
         $data = [
-            'id_fakultas'=>$this->session->userdata('id'),
+            'id_fakultas'=>$this->session->userdata('id_fakultas'),
             'nim'=>$this->input->post('nim',true),
             'nama'=>$this->input->post('nama',true),
             'email'=>$this->input->post('email',true),
@@ -159,15 +159,15 @@ class Pemilih extends CI_Controller {
             'protocol'  =>'smtp',
             'smtp_host' =>'ssl://smtp.googlemail.com',
             'smtp_port' =>465,
-            'smtp_user' =>'nama email',
-            'smtp_pass' =>'password email',
+            'smtp_user' =>'feylla.lumombo@gmail.com',
+            'smtp_pass' =>'Informatika16',
             'mailtype'  =>'html',
             'charset'   =>'iso-8859-1'
         ];
 
         $this->load->library('email',$config);
         $this->email->set_newline("\r\n");
-        $this->email->from('nama email', 'Admin E-Voting');
+        $this->email->from('ekza97@gmail.com', 'Admin E-Voting');
         $this->email->to($email['email']);
         // $this->email->cc('another@another-example.com');
         // $this->email->bcc('them@their-example.com');
