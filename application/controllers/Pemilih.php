@@ -167,7 +167,7 @@ class Pemilih extends CI_Controller {
 
         $this->load->library('email',$config);
         $this->email->set_newline("\r\n");
-        $this->email->from('ekza97@gmail.com', 'Admin E-Voting');
+        $this->email->from('feylla.lumombo@gmail.com', 'Admin E-Voting');
         $this->email->to($email['email']);
         // $this->email->cc('another@another-example.com');
         // $this->email->bcc('them@their-example.com');
