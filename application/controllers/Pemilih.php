@@ -157,12 +157,14 @@ class Pemilih extends CI_Controller {
 
         $config = [
             'protocol'  =>'smtp',
-            'smtp_host' =>'ssl://smtp.googlemail.com',
+            'smtp_host' =>'ssl://smtp.gmail.com',
+            // 'smtp_host' =>'ssl://smtp.googlemail.com',
             'smtp_port' =>465,
             'smtp_user' =>'feylla.lumombo@gmail.com',
             'smtp_pass' =>'Informatika16',
             'mailtype'  =>'html',
-            'charset'   =>'iso-8859-1'
+            'charset'   =>'iso-8859-1',
+            'starttls'  =>true
         ];
 
         $this->load->library('email',$config);
