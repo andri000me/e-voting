@@ -12,7 +12,7 @@ class Calon_m extends CI_Model {
         return $this->db->get($this->table)->result_array();
     }
 
-    public function getDatabyId($id){
+    public function getDataById($id){
         return $this->db->get_where($this->table,[$this->id=>$id])->row_array();
     }
 

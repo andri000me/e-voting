@@ -16,6 +16,8 @@ class Calon extends CI_Controller {
             }
         }
         $this->load->model('calon_m');
+        $this->load->model('fakultas_m');
+        $this->load->model('hasil_m');
     }
     
 
@@ -27,9 +29,19 @@ class Calon extends CI_Controller {
         $this->load->view('index',$data);
     }
 
+    public function detail($id)
+    {
+        $data['mCalon'] = true;
+        $data['calon'] = $this->calon_m->getDataById($id);
+        $data['suara_calon'] = $this->hasil_m->getDataById($id);
+        $data['content'] = 'detail_calon';  
+        $this->load->view('index',$data);
+    }
+
     public function tambah_calon()
     {
         $data['mCalon'] = true;
+        $data['fakultas'] = $this->fakultas_m->getAll();
         $data['content'] = 'tambah_calon';  
         $this->load->view('index',$data);
     }
@@ -37,6 +49,7 @@ class Calon extends CI_Controller {
     public function ubah($id)
     {
         $data['mCalon'] = true;
+        $data['fakultas'] = $this->fakultas_m->getAll();
         $data['calonbyid'] = $this->calon_m->getDataById($id);
         $data['content'] = 'edit_calon';  
         $this->load->view('index',$data);
@@ -62,6 +75,10 @@ class Calon extends CI_Controller {
         {
             $img = $this->upload->data();
             $data = [
+                'fakultas_calon_presma'=>$this->input->post('fakultas_calon_presma',true),
+                'fakultas_calon_wapresma'=>$this->input->post('fakultas_calon_wapresma',true),
+                'nim_calon_presma'=>$this->input->post('nim_calon_presma',true),
+                'nim_calon_wapresma'=>$this->input->post('nim_calon_wapresma',true),
                 'calon_presma'=>$this->input->post('calon_presma',true),
                 'calon_wakil_presma'=>$this->input->post('calon_wakil_presma',true),
                 'visi_misi'=>$this->input->post('visi_misi',true),
@@ -87,6 +104,10 @@ class Calon extends CI_Controller {
         {
             $img = $this->upload->data();
             $data = [
+                'fakultas_calon_presma'=>$this->input->post('fakultas_calon_presma',true),
+                'fakultas_calon_wapresma'=>$this->input->post('fakultas_calon_wapresma',true),
+                'nim_calon_presma'=>$this->input->post('nim_calon_presma',true),
+                'nim_calon_wapresma'=>$this->input->post('nim_calon_wapresma',true),
                 'calon_presma'=>$this->input->post('calon_presma',true),
                 'calon_wakil_presma'=>$this->input->post('calon_wakil_presma',true),
                 'visi_misi'=>$this->input->post('visi_misi',true),

@@ -32,7 +32,8 @@
                         width="100%" height="150">
                     <div class="card-body">
                         <h4 class="card-title text-center border-left-info">
-                            <?=$dc['calon_presma'].' & '.$dc['calon_wakil_presma'];?>
+                            <a
+                                href="<?=base_url('pemilihan/detail/'.$dc['id_calon']);?>"><?=$dc['calon_presma'].' & '.$dc['calon_wakil_presma'];?></a>
                         </h4>
                         <p class="card-text"><?=$dc['visi_misi'];?></p>
                     </div>

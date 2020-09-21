@@ -27,6 +27,15 @@ class Pemilihan extends CI_Controller {
         $data['content'] = 'v_pemilihan';
         $this->load->view('index',$data);
     }
+    
+    public function detail($id)
+    {
+        $data['mPemilihan'] = true;
+        $data['calon'] = $this->calon_m->getDataById($id);
+        $data['suara_calon'] = $this->hasil_m->getDataById($id);
+        $data['content'] = 'detail_calon';  
+        $this->load->view('index',$data);
+    }
 
     public function pilih($id){
         $cek = $this->hasil_m->cekSuara($this->session->userdata('id'));

@@ -43,8 +43,10 @@
                     <?php $n=1; foreach($calon as $c): ?>
                     <tr>
                         <td><?= $n++; ?></td>
-                        <td><?= $c['calon_presma']; ?></td>
-                        <td><?= $c['calon_wakil_presma']; ?></td>
+                        <td><a href="<?=base_url('calon/detail/'.$c['id_calon']);?>"><?= $c['calon_presma']; ?></a></td>
+                        <td><a
+                                href="<?=base_url('calon/detail/'.$c['id_calon']);?>"><?= $c['calon_wakil_presma']; ?></a>
+                        </td>
                         <td><?= $c['visi_misi']; ?></td>
                         <td>
                             <img src="<?=base_url('uploads/image/');?><?=$c['gambar'];?>" alt="Foto Calon" width="100"

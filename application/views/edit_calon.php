@@ -18,11 +18,55 @@ function preview_foto(event) {
         <form action="<?=base_url('calon/proses_ubah');?>" method="post" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Fakultas Calon Presma</label>
+                                <select class="form-control" name="fakultas_calon_presma">
+                                    <?php foreach($fakultas as $f): ?>
+                                    <option value="<?= $f['nama_fakultas']; ?>"
+                                        <?= $f['nama_fakultas']==$calonbyid['fakultas_calon_presma']?'selected':''; ?>>
+                                        <?= ucwords($f['nama_fakultas']); ?>
+                                    </option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="presma">NIM Calon Presma</label>
+                                <input type="text" class="form-control" id="presma" name="nim_calon_presma"
+                                    value="<?=$calonbyid['nim_calon_presma'];?>" autofocus required>
+                            </div>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label for="presma">Nama Calon Presma</label>
                         <input type="hidden" name="id_calon" value="<?=$calonbyid['id_calon'];?>">
                         <input type="text" class="form-control" id="presma" name="calon_presma"
                             value="<?=$calonbyid['calon_presma'];?>" autofocus required>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Fakultas Calon Wapresma</label>
+                                <select class="form-control" name="fakultas_calon_wapresma">
+                                    <?php foreach($fakultas as $f): ?>
+                                    <option value="<?= $f['nama_fakultas']; ?>"
+                                        <?= $f['nama_fakultas']==$calonbyid['fakultas_calon_wapresma']?'selected':''; ?>>
+                                        <?= ucwords($f['nama_fakultas']); ?>
+                                    </option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="presma">NIM Calon Presma</label>
+                                <input type="text" class="form-control" id="presma" name="nim_calon_wapresma"
+                                    value="<?=$calonbyid['nim_calon_wapresma'];?>" autofocus required>
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="wapresma">Nama Calon Wakil Presma</label>
