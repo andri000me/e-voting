@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 31, 2020 at 11:40 AM
+-- Generation Time: Sep 21, 2020 at 02:26 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -55,6 +55,10 @@ INSERT INTO `tb_admin` (`id_admin`, `username`, `password`, `id_fakultas`, `leve
 
 CREATE TABLE `tb_calon` (
   `id_calon` int(11) NOT NULL,
+  `fakultas_calon_presma` varchar(128) NOT NULL,
+  `fakultas_calon_wapresma` varchar(128) NOT NULL,
+  `nim_calon_presma` varchar(10) NOT NULL,
+  `nim_calon_wapresma` varchar(10) NOT NULL,
   `calon_presma` varchar(20) NOT NULL,
   `calon_wakil_presma` varchar(20) NOT NULL,
   `visi_misi` text NOT NULL,
@@ -66,10 +70,11 @@ CREATE TABLE `tb_calon` (
 -- Dumping data for table `tb_calon`
 --
 
-INSERT INTO `tb_calon` (`id_calon`, `calon_presma`, `calon_wakil_presma`, `visi_misi`, `gambar`, `video`) VALUES
-(7, 'Saya', 'Kamu', 'Saya dan kamu menjadi satu', '218f16ea0f59bed40eb43118695ebe60.jpg', '4a7bc59043b47de832875cd554c6e9e6.mp4'),
-(8, 'Kamu', 'Dia', 'Kalian selingkuh', '715199f9fbc2fbaa15efdefa22a67131.jpg', '0789ab46371a660a916586ff09df9867.mp4'),
-(9, 'Dia', 'Siapa', 'Siapa saja deh', '1729403924f1d5189410ef993eeb6ef0.jpg', '6626fc382275ab651284380264f3ad35.mp4');
+INSERT INTO `tb_calon` (`id_calon`, `fakultas_calon_presma`, `fakultas_calon_wapresma`, `nim_calon_presma`, `nim_calon_wapresma`, `calon_presma`, `calon_wakil_presma`, `visi_misi`, `gambar`, `video`) VALUES
+(7, 'Pendidikan', 'kelautan', '6868868', '4464646', 'Saya', 'Kamu', 'Saya dan kamu menjadi satu', '2aa008ab28ff63a618af84a625b804d8.jpg', '4a7bc59043b47de832875cd554c6e9e6.mp4'),
+(8, '0', '0', '', '', 'Kamu', 'Dia', 'Kalian selingkuh', '715199f9fbc2fbaa15efdefa22a67131.jpg', '0789ab46371a660a916586ff09df9867.mp4'),
+(9, '0', '0', '', '', 'Dia', 'Siapa', 'Siapa saja deh', '1729403924f1d5189410ef993eeb6ef0.jpg', '6626fc382275ab651284380264f3ad35.mp4'),
+(12, 'Pendidikan', 'Kedokteran', '123213', '5345345', 'adasdasd', 'sdasdasd', 'asdas sdasd sds dasds ', 'e2e8afa0ffe3c3506398bcb8566851f9.jpg', '');
 
 -- --------------------------------------------------------
 
@@ -112,7 +117,7 @@ INSERT INTO `tb_hasil_suara` (`id_hasil`, `id_pemilih`, `id_calon`) VALUES
 (12, 110, 8),
 (14, 91, 7),
 (15, 112, 9),
-(16, 115, 7);
+(16, 115, 11);
 
 -- --------------------------------------------------------
 
@@ -137,8 +142,12 @@ INSERT INTO `tb_pemilih` (`id_pemilih`, `id_fakultas`, `nim`, `nama`, `email`, `
 (91, 4, 201552001, 'Eka Saputra', 'ekza97@gmail.com', '$2y$10$Q3OdC8edm0S.RW5weF9ZbOmExVR.yclkkojF4Nm7ttp0eOlZ7mS0O'),
 (110, 5, 201552002, 'COBA saja', 'eka56572@gmail.com', '$2y$10$KDPfPr9jfzhqe.kuxBfWXegqxVpIAHjipWwi.SsL0mCjf/YDZY5dS'),
 (112, 6, 202065001, 'ASASF', 'admin@gmail.com', '$2y$10$8bJd1TdRh7UrnQSMhhYmJeonLYWBU.SAO6w5e4DSjP0ykEg6JHL2e'),
-(114, 7, 202065002, 'Suharni, S.Pd,SD', 'nuryadieko1@gmail.com', '$2y$10$KDPfPr9jfzhqe.kuxBfWXegqxVpIAHjipWwi.SsL0mCjf/YDZY5dS'),
-(115, 7, 201865001, 'Tes', 'tes@gmail.com', '$2y$10$1ai1oNExWYHMpxawQmQiZOKsu67Oz1GwQ7lPZ/yNVPFiYsk.Jaera');
+(114, 7, 202065002, 'Suharni, S.Pd,SD', 'feylla.lumombo@gmail.com', '$2y$10$KDPfPr9jfzhqe.kuxBfWXegqxVpIAHjipWwi.SsL0mCjf/YDZY5dS'),
+(115, 7, 201865001, 'Tes', 'eka.saputra.202065053@gmail.com', '$2y$10$1ai1oNExWYHMpxawQmQiZOKsu67Oz1GwQ7lPZ/yNVPFiYsk.Jaera'),
+(116, 7, 202065003, 'Eka Saputra', 'ekza97@gmail.com', '$2y$10$SVgCBOe6GhJ.ydXtUpvdhOOJ5.Vy.WOZXrGzgLtc8S97NZHYKZdge'),
+(120, 7, 201552056, 'COBA', 'coba@gmail.com', '201552056'),
+(121, 7, 202065078, 'ASASF', 'admin@gmail.com', '123'),
+(123, 7, 202065053, 'Eka Saputra', 'ekza97@gmail.com', '$2y$10$UeTCs0dbiLuUTwNCf8OyPO6LjQIWI.kmqW1AqP9R3B5iVz.eyHbEK');
 
 -- --------------------------------------------------------
 
@@ -158,7 +167,7 @@ CREATE TABLE `tb_pemilihan` (
 --
 
 INSERT INTO `tb_pemilihan` (`id_pemilihan`, `mulai_pemilihan`, `akhir_pemilihan`, `status`) VALUES
-(1, 1598866044, 1598952444, 'nonaktif');
+(1, 1600688508, 1600774908, 'aktif');
 
 --
 -- Indexes for dumped tables
@@ -218,7 +227,7 @@ ALTER TABLE `tb_admin`
 -- AUTO_INCREMENT for table `tb_calon`
 --
 ALTER TABLE `tb_calon`
-  MODIFY `id_calon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_calon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `tb_fakultas`
@@ -236,7 +245,7 @@ ALTER TABLE `tb_hasil_suara`
 -- AUTO_INCREMENT for table `tb_pemilih`
 --
 ALTER TABLE `tb_pemilih`
-  MODIFY `id_pemilih` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=116;
+  MODIFY `id_pemilih` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
 
 --
 -- AUTO_INCREMENT for table `tb_pemilihan`
