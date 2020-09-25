@@ -89,7 +89,7 @@ class Pemilih extends CI_Controller {
     }
 
     public function import(){
-	
+        error_reporting(0);
         $config['upload_path'] = './uploads/excel/';    
         $config['allowed_types'] = 'xlsx';    
         $config['max_size']  = 2048;    
