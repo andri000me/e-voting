@@ -70,7 +70,7 @@
                     <tr>
                         <th width="25">No</th>
                         <th>NIM</th>
-                        <th>Nama Lengkap</th>
+                        <!-- <th>Nama Lengkap</th> -->
                     </tr>
                 </thead>
                 <tbody>
@@ -78,7 +78,7 @@
                     <tr>
                         <td><?= $n++; ?></td>
                         <td><?= $sc['nim']; ?></td>
-                        <td><?= ucwords($sc['nama']); ?></td>
+                        <!-- <td><?= ucwords($sc['nama']); ?></td> -->
                     </tr>
                     <?php endforeach; ?>
                 </tbody>
