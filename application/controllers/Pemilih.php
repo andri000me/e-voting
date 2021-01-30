@@ -152,15 +152,33 @@ class Pemilih extends CI_Controller {
         redirect('pemilih');
     }
 
+    public function kirim_all($id_fakultas){
+        $email = $this->pemilih_m->getByFakultas($id_fakultas);
+
+        foreach ($email as $row) {
+            $this->_email($row['nim'],$row['nama'],$row['email']);
+        }
+        $this->session->set_flashdata('berhasil','Anda berhasil mengirim Email ke semua Pemilih');
+        redirect('pemilih');
+    }
+
     public function kirim($id){
         $email = $this->pemilih_m->getDataById($id);
 
+        $this->_email($email['nim'],$email['nama'],$email['email']);
+
+        $this->pemilih_m->mailSent($id);
+        
+        redirect('pemilih');
+    }
+
+    private function _email($nim,$nama,$email){
         $config = [
             'protocol'  =>'smtp',
             'smtp_host' =>'ssl://smtp.gmail.com',
             // 'smtp_host' =>'ssl://smtp.googlemail.com',
             'smtp_port' =>465,
-            'smtp_user' =>'feylla.lumombo@gmail.com',
+            'smtp_user' =>'evotingpresma20@gmail.com',
             'smtp_pass' =>'Informatika16',
             'mailtype'  =>'html',
             'charset'   =>'iso-8859-1',
@@ -169,23 +187,23 @@ class Pemilih extends CI_Controller {
 
         $this->load->library('email',$config);
         $this->email->set_newline("\r\n");
-        $this->email->from('feylla.lumombo@gmail.com', 'Admin E-Voting');
-        $this->email->to($email['email']);
+        $this->email->from('evotingpresma20@gmail.com', 'Admin E-Voting');
+        $this->email->to($email);
         // $this->email->cc('another@another-example.com');
         // $this->email->bcc('them@their-example.com');
 
         $this->email->subject('Informasi Akun');
         $this->email->message('
-                    <h2>Hallo, '.$email['nama'].'</h2>
+                    <h2>Hallo, '.$nama.'</h2>
                     Berikut ini kami informasikan akun pemilihan anda : <br>
                     <table>
                     <tr>
                     <td>Nama Lengkap</td>
-                    <td>: <b>'.$email['nama'].'</b></td>
+                    <td>: <b>'.$nama.'</b></td>
                     </tr>
                     <tr>
                     <td>Nomor Induk Mahasiswa</td>
-                    <td>: <b>'.$email['nim'].'</b></td>
+                    <td>: <b>'.$nim.'</b></td>
                     </tr>
                     </table>
                     Silahkan login pada sistem dengan menggunakan NIM dan Password yang anda daftarkan di link berikut : <br>
@@ -194,11 +212,10 @@ class Pemilih extends CI_Controller {
                 ');
 
         if($this->email->send()){
-            $this->session->set_flashdata('berhasil','Anda berhasil mengirim Email');
+            $this->session->set_flashdata('berhasil','Anda berhasil mengirim Email ke <strong>'.$email.'</strong>');
         }else{
-            $this->session->set_flashdata('gagal','Anda gagal mengirim Email');
+            $this->session->set_flashdata('gagal','Anda gagal mengirim Email ke <strong>'.$email.'</strong>');
         }
-        redirect('pemilih');
     }
 
     public function hapus($id){

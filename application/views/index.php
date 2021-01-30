@@ -50,7 +50,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <img src="<?=base_url('assets/img/');?>unipa.png" alt="Logo" height="50" width="50">
                 </div>
-                <div class="sidebar-brand-text mx-3">E-Voting <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">E-Voting BEM<sup></sup></div>
             </a>
 
             <!-- Divider -->

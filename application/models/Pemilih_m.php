@@ -52,6 +52,10 @@ class Pemilih_m extends CI_Model {
         $this->db->insert($this->table,$data);
     }
 
+    public function mailSent($id){
+        $this->db->update($this->table,['mail_sent'=>1],[$this->id=>$id]);
+    }
+
     public function hapus($id){
         $this->db->delete($this->table,[$this->id=>$id]);
     }

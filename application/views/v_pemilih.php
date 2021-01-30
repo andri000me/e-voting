@@ -83,6 +83,13 @@
             </span>
             <span class="text">Import</span>
         </a>
+        <a href="<?=base_url('pemilih/kirim_all/'.$this->session->userdata('id_fakultas'));?>"
+            class="btn btn-primary btn-icon-split btn-sm float-right">
+            <span class="icon text-white-50">
+                <i class="fas fa-envelope"></i>
+            </span>
+            <span class="text">Kirim Email ke Semua</span>
+        </a>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -105,13 +112,14 @@
                         <td><?= $pf['email']; ?></td>
                         <td>
                             <a href="<?=base_url('pemilih/kirim/');?><?=$pf['id_pemilih'];?>"
-                                class="btn btn-primary btn-sm mb-1"><i class="fas fa-envelope"></i> Kirim</a>
+                                class="btn btn-primary btn-sm mb-1"><i class="fas fa-envelope"></i> Kirim <?=$pf['mail_sent']!=0?'<i
+                                    class="fas fa-check"></i>':'';?></a>
                             <a href="<?=base_url('pemilih/ubah/');?><?=$pf['id_pemilih'];?>"
                                 class="btn btn-info btn-sm mb-1"><i class="fas fa-edit"></i> Ubah</a>
                             <a href="<?=base_url('pemilih/reset/');?><?=$pf['id_pemilih'];?>"
                                 class="btn btn-warning btn-sm mb-1"
                                 onclick="return confirm('Password anda akan diubah menjadi NIM, Anda yakin ingin mereset ulang password ?')"><i
-                                    class="fas fa-trash"></i> Reset</a>
+                                    class="fas fa-key"></i> Reset</a>
                             <a href="<?=base_url('pemilih/hapus/');?><?=$pf['id_pemilih'];?>"
                                 class="btn btn-danger btn-sm mb-1"
                                 onclick="return confirm('Anda yakin ingin menghapus data ini ?')"><i
