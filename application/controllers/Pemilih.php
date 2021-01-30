@@ -157,6 +157,7 @@ class Pemilih extends CI_Controller {
 
         foreach ($email as $row) {
             $this->_email($row['nim'],$row['nama'],$row['email']);
+            $this->pemilih_m->mailSent($row['id_pemilih']);
         }
         $this->session->set_flashdata('berhasil','Anda berhasil mengirim Email ke semua Pemilih');
         redirect('pemilih');
