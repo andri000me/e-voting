@@ -93,16 +93,7 @@ class Calon extends CI_Controller {
     }
 
     public function proses_ubah(){
-        $config['upload_path']          = './uploads/image/';
-        $config['allowed_types']        = 'jpeg|jpg|png';
-        $config['max_size']             = 2048;
-        $config['encrypt_name']         = true;
-
-        $this->load->library('upload', $config);
-
-        if ($this->upload->do_upload('foto_calon'))
-        {
-            $img = $this->upload->data();
+        if($_FILES['foto_calon']['name']==""){
             $data = [
                 'fakultas_calon_presma'=>$this->input->post('fakultas_calon_presma',true),
                 'fakultas_calon_wapresma'=>$this->input->post('fakultas_calon_wapresma',true),
@@ -111,15 +102,39 @@ class Calon extends CI_Controller {
                 'calon_presma'=>$this->input->post('calon_presma',true),
                 'calon_wakil_presma'=>$this->input->post('calon_wakil_presma',true),
                 'visi_misi'=>$this->input->post('visi_misi',true),
-                'gambar'=>$img['file_name'],
+                'gambar'=>$this->input->post('foto_lama',true),
             ];
-            $edit = $this->calon_m->ubahData($data,$this->input->post('id_calon',true));
-            if($data){
-                unlink('./uploads/image/'.$this->input->post('foto_lama',true));
-            }
+            $this->calon_m->ubahData($data,$this->input->post('id_calon',true));
             $this->session->set_flashdata('berhasil','Anda berhasil mengubah data Calon');
         }else{
-            $this->session->set_flashdata('gagal',$this->upload->display_errors());
+            $config['upload_path']          = './uploads/image/';
+            $config['allowed_types']        = 'jpeg|jpg|png';
+            $config['max_size']             = 2048;
+            $config['encrypt_name']         = true;
+    
+            $this->load->library('upload', $config);
+    
+            if ($this->upload->do_upload('foto_calon'))
+            {
+                $img = $this->upload->data();
+                $data = [
+                    'fakultas_calon_presma'=>$this->input->post('fakultas_calon_presma',true),
+                    'fakultas_calon_wapresma'=>$this->input->post('fakultas_calon_wapresma',true),
+                    'nim_calon_presma'=>$this->input->post('nim_calon_presma',true),
+                    'nim_calon_wapresma'=>$this->input->post('nim_calon_wapresma',true),
+                    'calon_presma'=>$this->input->post('calon_presma',true),
+                    'calon_wakil_presma'=>$this->input->post('calon_wakil_presma',true),
+                    'visi_misi'=>$this->input->post('visi_misi',true),
+                    'gambar'=>$img['file_name'],
+                ];
+                $edit = $this->calon_m->ubahData($data,$this->input->post('id_calon',true));
+                if($edit){
+                    unlink('./uploads/image/'.$this->input->post('foto_lama',true));
+                }
+                $this->session->set_flashdata('berhasil','Anda berhasil mengubah data Calon');
+            }else{
+                $this->session->set_flashdata('gagal',$this->upload->display_errors());
+            }
         }
         redirect('calon');
     }
