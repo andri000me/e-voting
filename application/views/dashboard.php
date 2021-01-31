@@ -1,3 +1,4 @@
+<?php date_default_timezone_set('Asia/Jayapura'); ?>
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
@@ -101,7 +102,8 @@
         <!-- Informasi -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Panduan Memilih Pasangan Calon</h6>
+                <h6 class="m-0 font-weight-bold text-primary float-left">Panduan Memilih Pasangan Calon</h6>
+                <h6 class="m-0 font-weight-bold text-primary float-right">Batas Waktu : <?= date('d-m-Y H:i:s',$config['akhir_pemilihan']); ?></h6>
             </div>
             <div class="card-body">
                 <p>Berikut ini langkah-langkah yang harus anda lalui untuk memilih pasangan calon favorit anda :</p>

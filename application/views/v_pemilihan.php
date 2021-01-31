@@ -1,5 +1,5 @@
 <!-- Page Heading -->
-<h1 class="h3 mb-2 text-gray-800">Pemungutan Suara</h1>
+<h1 class="h3 mb-2 text-gray-800">Pemungutan Suara </h1>
 <?php if($this->session->flashdata('berhasil')): ?>
 <div class="alert alert-success alert-dismissible fade show" role="alert">
     <strong>Berhasil</strong> <?= $this->session->flashdata('berhasil'); ?>

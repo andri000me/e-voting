@@ -46,7 +46,7 @@
         <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar" style="background-color:#7109e0;">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <img src="<?=base_url('assets/img/');?>unipa.png" alt="Logo" height="50" width="50">
                 </div>
@@ -154,10 +154,18 @@
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
+                        <li class="nav-item">
+                            <div class="nav-link text-white" id="tanggal"></div>
+                        </li>
+                        <li class="nav-item">
+                            <div class="nav-link text-white" id="jam"></div>
+                        </li>
+
                         <div class="topbar-divider d-none d-sm-block"></div>
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
+                            
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span
@@ -321,8 +329,26 @@
             }
         });
     }
-    </script>
 
+    
+    </script>
+    <script type="text/javascript">
+    const sekarang = new Date();
+    const tgl = sekarang.getDate();
+    var namabulan = ("Januari Februari Maret April Mei Juni Juli Agustus September Oktober November Desember");
+    namabulan = namabulan.split(" ");
+    const bln = sekarang.getMonth();
+    const thn = sekarang.getFullYear();
+    document.getElementById("tanggal").innerHTML = tgl+" "+namabulan[bln]+" "+thn;
+
+    // 1 detik = 1000
+    window.setTimeout("waktu()",1000);  
+    function waktu() {   
+        var tanggal = new Date();  
+        setTimeout("waktu()",1000);  
+        document.getElementById("jam").innerHTML = tanggal.getHours()+":"+tanggal.getMinutes()+":"+tanggal.getSeconds();
+    }
+    </script>
 </body>
 
 </html>
